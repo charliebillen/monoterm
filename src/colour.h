@@ -21,13 +21,12 @@ typedef struct
 Generates a colour_t representing a given hex colour string
 
 @param string: a string representing a hex colour, e.g. "ff0012"
-
-@returns a (colour_t *) such that given the above param
+@param colour: a (colour_t *) such that given the above param
 - red = 0xff
 - green = 0x00
 - blue = 0x12
 */
-colour_t *colour_from_hex_string(const char *string);
+void colour_from_hex_string(const char *string, colour_t *colour);
 
 /**
 Uses linear interpolation to finds a colour between min and max using scale
@@ -35,10 +34,11 @@ Uses linear interpolation to finds a colour between min and max using scale
 @param min: the minimum colour
 @param max: the maxiumum colour
 @param scale: the scale used to find the colour between min and max
-
-@returns a (colour_t *) representing the interpolated colour
+@param interpolated: a (colour_t *) representing the interpolated colour
 */
-colour_t *interpolate_colour(
-    const colour_t *min, const colour_t *max, const float scale);
+void interpolate_colour(const colour_t *min,
+    const colour_t *max,
+    const float scale,
+    colour_t *interpolated);
 
 #endif // __COLOUR_H

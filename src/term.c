@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 
 #include "colour.h"
 #include "term.h"
@@ -44,22 +44,19 @@ based on their corresponding scale entry
 */
 void print_colour_table(const char *min_str, const char *max_str)
 {
-    colour_t *min = colour_from_hex_string(min_str);
-    colour_t *max = colour_from_hex_string(max_str);
+    colour_t min, max;
+    colour_from_hex_string(min_str, &min);
+    colour_from_hex_string(max_str, &max);
 
     for (int i = 0; i < NUM_COLOURS; i++)
     {
         float scale = scales[i];
         char *name = names[i];
 
-        colour_t *interpolated = interpolate_colour(min, max, scale);
-        print_colour_row(name, interpolated);
-
-        free(interpolated);
+        colour_t interpolated;
+        interpolate_colour(&min, &max, scale, &interpolated);
+        print_colour_row(name, &interpolated);
     }
-
-    free(min);
-    free(max);
 }
 
 void parse_args(const int argc, char *argv[], args_t *args)

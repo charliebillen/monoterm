@@ -3,14 +3,10 @@
 
 #include "colour.h"
 
-colour_t *colour_from_hex_string(const char *string)
+void colour_from_hex_string(const char *string, colour_t *colour)
 {
-    colour_t *colour = malloc(sizeof(colour_t));
-
-    int min = strtol(string, NULL, 16);
-    memcpy(colour, &min, sizeof(colour_t));
-
-    return colour;
+    int hex = strtol(string, NULL, 16);
+    memcpy(colour, &hex, sizeof(colour_t));
 }
 
 /*
@@ -24,14 +20,12 @@ byte_t interpolate_value(const byte_t min, const byte_t max, const float scale)
     return min + (max - min) * scale;
 }
 
-colour_t *interpolate_colour(
-    const colour_t *min, const colour_t *max, const float scale)
+void interpolate_colour(const colour_t *min,
+    const colour_t *max,
+    const float scale,
+    colour_t *interpolated)
 {
-    colour_t *interpolated = malloc(sizeof(colour_t));
-
     interpolated->red = interpolate_value(min->red, max->red, scale);
     interpolated->green = interpolate_value(min->green, max->green, scale);
     interpolated->blue = interpolate_value(min->blue, max->blue, scale);
-
-    return interpolated;
 }

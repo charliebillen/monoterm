@@ -46,22 +46,22 @@ https://github.com/anotherglitchinthematrix/monochrome
 static float scales[] = {
     // Normal ANSI colours
     0,
-    0.5,
-    0.3,
-    0.7,
-    0.2,
-    0.6,
-    0.4,
+    0.55,
+    0.35,
+    0.75,
+    0.25,
+    0.65,
+    0.45,
     0.8,
 
     // Bright ANSI colours
     0.1,
-    0.5,
-    0.3,
     0.7,
-    0.2,
-    0.6,
+    0.5,
+    0.9,
     0.4,
+    0.8,
+    0.6,
     1,
 
     // Terminal background and foreground
@@ -80,12 +80,23 @@ Prints colour table given a min and max hex colour
 */
 void print_colour_table(const char *min_colour, const char *max_colour);
 
+/**
+Holds the parsed command arguments
+*/
 typedef struct
 {
     char *min_colour;
     char *max_colour;
 } args_t;
 
+/**
+Parses the command arguments into an (args_t *), providing default values if
+necessary
+
+@param argc: the argument count
+@param argv: the argument list
+@param args: the (args_t *) to populate
+*/
 void parse_args(const int argc, char *argv[], args_t *args);
 
 #endif // __TERM_H

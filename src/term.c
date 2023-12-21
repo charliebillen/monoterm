@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 #include "colour.h"
 #include "term.h"
 

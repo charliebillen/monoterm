@@ -1,3 +1,5 @@
+[![CI](https://github.com/charliebillen/monoterm/actions/workflows/ci.yml/badge.svg)](https://github.com/charliebillen/monoterm/actions/workflows/ci.yml)
+
 # Monoterm
 
 Given a minimum and maximum colour, generates a monochromatic colour set, based on linear interpolation between the values and a scale, suitable for use in a terminal emulator colour scheme.

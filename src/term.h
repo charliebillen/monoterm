@@ -1,6 +1,9 @@
 #ifndef __TERM_H
 #define __TERM_H
 
+#define DEFAULT_MIN "000000"
+#define DEFAULT_MAX "ffffff"
+
 #define NUM_COLOURS 20
 
 /*
@@ -76,5 +79,13 @@ Prints colour table given a min and max hex colour
 @param max_colour: a hex string representing the maximum colour, e.g. "ffffff"
 */
 void print_colour_table(const char *min_colour, const char *max_colour);
+
+typedef struct
+{
+    char *min_colour;
+    char *max_colour;
+} args_t;
+
+void parse_args(const int argc, char *argv[], args_t *args);
 
 #endif // __TERM_H

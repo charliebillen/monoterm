@@ -4,7 +4,7 @@
 #include "../src/colour.h"
 #include "test.h"
 
-void test_colour_from_hex_string()
+void test_colour_from_hex_string(void)
 {
     colour_t *col = colour_from_hex_string("ffee22");
 
@@ -15,7 +15,7 @@ void test_colour_from_hex_string()
     free(col);
 }
 
-void test_interpolate_colour()
+void test_interpolate_colour(void)
 {
     colour_t min = {.red = 0, .green = 0, .blue = 0};
     colour_t max = {.red = 255, .green = 255, .blue = 255};

@@ -16,6 +16,8 @@
         printf("%s passed\n", name);                                          \
     } while (0)
 
+#define STR_EQ(s1, s2) (strcmp(s1, s2) == 0)
+
 #define EQ(i, j) (i == j)
 
 #endif // __TEST_H

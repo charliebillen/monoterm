@@ -61,3 +61,24 @@ void print_colour_table(const char *min_str, const char *max_str)
     free(min);
     free(max);
 }
+
+void parse_args(const int argc, char *argv[], args_t *args)
+{
+    char *min_colour = DEFAULT_MIN;
+    char *max_colour = DEFAULT_MAX;
+
+    switch (argc)
+    {
+    case 2:
+        min_colour = argv[1];
+        max_colour = DEFAULT_MAX;
+        break;
+    case 3:
+        min_colour = argv[1];
+        max_colour = argv[2];
+        break;
+    }
+
+    args->min_colour = min_colour;
+    args->max_colour = max_colour;
+}

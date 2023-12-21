@@ -7,14 +7,13 @@ Avoid unexpected signed char issues
 typedef unsigned char byte_t;
 
 /**
-Colours are backwards because it's used a dirty way and is therefore
-subject to the little-endian nature of my machine
+Holds the RGB bytes of a 24 bit colour
 */
 typedef struct
 {
-    byte_t blue;
-    byte_t green;
     byte_t red;
+    byte_t green;
+    byte_t blue;
 } colour_t;
 
 /**

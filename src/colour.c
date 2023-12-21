@@ -6,7 +6,10 @@
 void colour_from_hex_string(const char *string, colour_t *colour)
 {
     int hex = strtol(string, NULL, 16);
-    memcpy(colour, &hex, sizeof(colour_t));
+
+    colour->red = (hex >> 16) & 255;
+    colour->green = (hex >> 8) & 255;
+    colour->blue = (hex >> 0) & 255;
 }
 
 /*

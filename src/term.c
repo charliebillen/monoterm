@@ -10,19 +10,24 @@ Useful information on escape/colour codes:
 */
 
 /**
-Sets the terminal background colour to the colour provided
+Sets the terminal colours to:
+- white foreground
+- the colour provided as background
 */
-void set_background(const colour_t *colour)
+void set_colour(const colour_t *colour)
 {
-    printf("\x1b[48;2;%d;%d;%dm", colour->red, colour->green, colour->blue);
+    printf("\x1b[38;2;255;255;255;48;2;%d;%d;%dm",
+        colour->red,
+        colour->green,
+        colour->blue);
 }
 
 /**
 Resets the terminal
 */
-void reset_background()
+void reset_colour()
 {
-    printf("\x1b[49m");
+    printf("\x1b[39;49m");
 }
 
 /**
@@ -31,9 +36,9 @@ Prints one colour row, name and hexcode
 void print_colour_row(const char *name, const colour_t *colour)
 {
     printf("%-17s\t", name);
-    set_background(colour);
+    set_colour(colour);
     printf(" #%02x%02x%02x \t", colour->red, colour->green, colour->blue);
-    reset_background();
+    reset_colour();
     puts("");
 }
 
